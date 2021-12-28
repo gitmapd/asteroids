@@ -20,7 +20,7 @@ class Asteroid:
     def __repr__(self): 
         return f"XY: {self.pos.x,self.pos.y}"
     def load_image(self,imgname):
-        self.imagename=pygame.image.load(f"{self.imagename}")        
+        self.image=pygame.image.load(imgname)        
     def move(self):
         self.pos+=self.vel
 white=[255,255,255,255] 
