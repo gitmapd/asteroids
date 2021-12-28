@@ -2,26 +2,27 @@ import math
 import numpy as np
 
 
-class Vector:
+class Vector2:
     def __init__(self,x,y):
         self.x=x
         self.y=y
+
     def __repr__(self):
-        return f"{Vector(self.x,self.y)}"
+        return f"{Vector2(self.x,self.y)}"
     def __str__(self):
         return f"{self.x,self.y}"
     def __add__(self,other):
-        return f"{Vector(self.x+other.x,self.y+other.y)}"
+        return f"{Vector2(self.x+other.x,self.y+other.y)}"
     def __sub__(self,other):
-        return f"{Vector(self.x-other.x,self.y-other.y)}"
+        return f"{Vector2(self.x-other.x,self.y-other.y)}"
     def __mul__(self,other):
-        if isinstance(other,Vector):
+        if isinstance(other,Vector2):
             return f"{self.x*other.x,self.y*other.x}"
         if isinstance(other,(int,float)):
             return f"{self.x*other,self.y*other}"
     def __truediv__(self,other):
         if isinstance(other,(int,float)):
-            return f"{Vector(self.x/other,self.y/other)}"
+            return f"{Vector2(self.x/other,self.y/other)}"
     def dot(self,other):
         return self.x*other.x+self.y*other.y
     def length(self):  
@@ -38,7 +39,7 @@ class Vector:
             return theta * 180 / math.pi
         return theta
     def normalize(self):
-        return Vector(self.x/self.length(),self.y/self.length())
+        return Vector2(self.x/self.length(),self.y/self.length())
     def to_polar(self):
         return self.length(), math.degrees(math.atan2(self.y, self.x))
 
