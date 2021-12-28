@@ -1,17 +1,17 @@
-from Vector2 import Vector
+from Vector2 import Vector2
 import pygame,sys
 import random
 pygame.init()
 clock=pygame.time.Clock()
 size=width,height=800,800
-#location=Vector(100,100)
-velocity=Vector(2.5,5)
+#location=Vector2(100,100)
+velocity=Vector2(2.5,5)
 screen=pygame.display.set_mode(size)
 moving_rect=pygame.Rect(350,350,100,100)
 xspeed,yspeed=5,4
 #tree=pygame.image.load("tree.png")
 #treerect=tree.get_rect()
-#player=Vector(300,300)
+#player=Vector2(300,300)
 class Asteroid:
     def __init__(self,pos,color,vel):
         self.pos=pos
@@ -19,14 +19,16 @@ class Asteroid:
         self.vel=vel
     def __repr__(self): 
         return f"XY: {self.pos.x,self.pos.y}"
-    def createrect(self,img,rect):
-        self.img=img
-        self.img=pygame.image.load(f"{self.rect}+'png'")        
+    def load_image(self,imgname):
+        self.imagename=pygame.image.load(f"{self.imagename}")        
     def move(self):
         self.pos+=self.vel
-white=[255,255,255,255]
-#a.createrect("tree.png")
-asteroids = [ Asteroid( Vector(random.random()*width,random.random()*height), (255,0,0),Vector(random.random(),random.random())) for x in range(0,10)]
+white=[255,255,255,255] 
+s=Vector2(2,3)
+a=Asteroid(s,(255,255,255),2)
+a.load_image("tree.png")
+print(a)
+asteroids = [ Asteroid( Vector2(random.random()*width,random.random()*height), (255,0,0),Vector2(random.random(),random.random())) for x in range(0,10)]
 print(asteroids)
 #def bouncing_rect():
 #    global xspeed
