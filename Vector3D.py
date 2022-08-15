@@ -41,10 +41,10 @@ class Vector3D:
 
     def angle_between(self,other,degrees=False):
         dp = self.dot(other)
-        cos_theta = dp / abs(self) * abs(other)
+        cos_theta = dp / (abs(self) * abs(other))
         theta = math.acos(cos_theta)
         if degrees:
             return theta * 180 / math.pi
-
+        return theta
 
 
